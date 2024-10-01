@@ -4,18 +4,22 @@ public class Libro {
     
     private String nombre;
     private String codigo;
+    private String isbn;
     private String autor;
     private String editorial;
     private String fecha;
+    private double valorDiaPrestamo;
     private int cantidad;
 
-    public Libro(String nombre, String codigo, String autor, String editorial, String fecha, int cantidad){
+    public Libro(String nombre, String codigo,String isbn, String autor, String editorial, String fecha,double valorDiaPrestamo, int cantidad){
 
         this.nombre= nombre;
         this.codigo=codigo;
+        this.isbn=isbn;
         this.autor=autor;
         this.editorial=editorial;
         this.fecha=fecha;
+        this.valorDiaPrestamo=valorDiaPrestamo;
         this.cantidad=cantidad;
      
     }
@@ -60,22 +64,43 @@ public class Libro {
         this.fecha = fecha;
     }
 
-    
-
-   
-
-    @Override
-    public String toString() {
-        return "Libro [nombre=" + nombre + ", codigo=" + codigo + ", autor=" + autor + ", editorial=" + editorial
-                + ", fecha=" + fecha  + ", cantidad=" +  cantidad + "]";
-    }
-
     public int getCantidad() {
         return cantidad;
     }
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public double getValorDiaPrestamo() {
+        return valorDiaPrestamo;
+    }
+
+    public void setValorDiaPrestamo(double valorDiaPrestamo) {
+        this.valorDiaPrestamo = valorDiaPrestamo;
+    }
+
+
+   
+
+    @Override
+    public String toString() {
+        return "Libro [nombre=" + nombre + ", codigo=" + codigo + ", isbn=" + isbn + ", autor=" + autor + ", editorial="
+                + editorial + ", fecha=" + fecha + ", valorDiaPrestamo=" + valorDiaPrestamo + ", cantidad=" + cantidad
+                + "]";
+    }
+
+    public void disminuirCantidadPorPrestamo(){
+
+        this.cantidad--;
     }
 
     /**
@@ -90,6 +115,9 @@ public class Libro {
 
         return false;
     }
+
+    
+   
 
 
 }

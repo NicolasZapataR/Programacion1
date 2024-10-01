@@ -6,21 +6,19 @@ import java.util.LinkedList;
 
 public class Bibliotecario extends Persona {
 
-    //private String nombre;
-   // private String cedula;
-   // private String telefono;
-   // private String correo;
+   
     private double salario;
-    
+    private int cantidadPrestamos;
     private String fechaIngreso;
     private Collection <Prestamo> lisPrestamos;
 
-    public Bibliotecario(String nombre,String cedula, String correo, String telefono, double salario, String fechaIngreso){
+    public Bibliotecario(String nombre,String cedula, String correo, String telefono, double salario, String fechaIngreso, int cantidadPrestamos){
 
         super(nombre, cedula, correo, telefono);
 
         this.salario=salario; 
         this.fechaIngreso=fechaIngreso;
+        this.cantidadPrestamos=cantidadPrestamos;
         this.lisPrestamos= new LinkedList<>();
 
     }
@@ -61,6 +59,18 @@ public class Bibliotecario extends Persona {
         this.lisPrestamos = lisPrestamos;
     }
 
+    
+    public int getCantidadPrestamos() {
+        return cantidadPrestamos;
+    }
+
+
+
+    public void setCantidadPrestamos(int cantidadPrestamos) {
+        this.cantidadPrestamos = cantidadPrestamos;
+    }
+
+
 
 
     @Override
@@ -68,6 +78,11 @@ public class Bibliotecario extends Persona {
         return "Bibliotecario [salario=" + salario + ", fechaIngreso=" + fechaIngreso + ", lisPrestamos=" + lisPrestamos
                 + "]";
     }
+
+
+
+   
+
 
 
 
