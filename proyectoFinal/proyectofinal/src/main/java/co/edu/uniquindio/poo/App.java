@@ -1,11 +1,41 @@
 package co.edu.uniquindio.poo;
 
+import java.util.WeakHashMap;
+
 /**
  * Hello world!
  *
  */
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+
+
+    }
+
+
+    public void ejecuarPrograma(){
+
+        Empresa empresa = new Empresa("localiza");
+
+
+       
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo;
 
-public class Empleado extends Persona{
+public class Empleado extends Persona {
     
     private double salario;
     private String correo;
@@ -69,6 +69,10 @@ public class Empleado extends Persona{
     public void setNumeroVehiculosVendidos(int numeroVehiculosVendidos) {
         this.numeroVehiculosVendidos = numeroVehiculosVendidos;
     }
+
+    
+
+   
 
     
     

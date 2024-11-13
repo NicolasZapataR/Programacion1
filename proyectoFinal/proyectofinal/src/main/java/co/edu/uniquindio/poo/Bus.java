@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo;
 
-public class Bus extends Vehiculo{
+public class Bus extends VehiculoCombustion{
 
     private int numeroPasajeros;
     private int numeroPuertas;
@@ -12,9 +12,10 @@ public class Bus extends Vehiculo{
     private int numeroEjes;
     private int numeroSalidasEmergencia;
 
-    public Bus(String tipoCombustible, String tipoTransmision, String marca, String estadoVehiculo, int numeroCambios, double velMax, double cilindraje, int numeroPasajeros, int numeroPuertas, double capacidadMaletero, int numeroBolsasAire, boolean aireAcondicionado, boolean camaraReversa, boolean sensorAbs, int numeroEjes, int numeroSalidasEmergencia){
+    public Bus( String placa,  TipoTransmision tipoTransmision, String marca, String estadoVehiculo, int numeroCambios, double velMax, double cilindraje, TipoCombustible tipoCombustible,int numeroPasajeros, int numeroPuertas, double capacidadMaletero, int numeroBolsasAire, boolean aireAcondicionado, boolean camaraReversa, boolean sensorAbs, int numeroEjes, int numeroSalidasEmergencia){
 
-        super(tipoCombustible, tipoTransmision, marca, estadoVehiculo, numeroCambios, velMax, cilindraje);
+
+        super(placa, tipoTransmision, marca, estadoVehiculo, numeroCambios, velMax, cilindraje, tipoCombustible);
 
         this.numeroPasajeros=numeroPasajeros;
         this.numeroPuertas=numeroPuertas;

@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo;
 
-public class Deportivo extends Vehiculo {
+public class Deportivo extends VehiculoCombustion {
 
     private int numeroPasajeros;
     private int numeroPuertas;
@@ -8,9 +8,11 @@ public class Deportivo extends Vehiculo {
     private double numeroCaballosDeFuerza;
     private double aceleracion;
 
-    public Deportivo(String tipoCombustible, String tipoTransmision, String marca, String estadoVehiculo, int numeroCambios, double velMax, double cilindraje, int numeroPasajeros, int numeroPuertas, double numeroCaballosDeFuerza, double aceleracion){
+    public Deportivo(String placa,  TipoTransmision tipoTransmision, String marca, String estadoVehiculo, int numeroCambios, double velMax, double cilindraje, TipoCombustible tipoCombustible, int numeroPasajeros, int numeroPuertas, double numeroCaballosDeFuerza, double aceleracion){
 
-        super(tipoCombustible, tipoTransmision, marca, estadoVehiculo, numeroCambios, velMax, cilindraje);
+        super(placa, tipoTransmision, marca, estadoVehiculo, numeroCambios, velMax, cilindraje, tipoCombustible);
+
+       
 
         this.numeroPasajeros=numeroPasajeros;
         this.numeroPuertas=numeroPuertas;

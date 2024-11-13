@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo;
 
-public class Camion extends Vehiculo {
+public class Camion extends VehiculoCombustion {
 
     private double capacidadCarga;
     private boolean aireAcondicionado;
@@ -9,18 +9,16 @@ public class Camion extends Vehiculo {
     private int numeroEjes;
     private TipoCamion tipoCamion;
 
-    public Camion(String tipoCombustible, String tipoTransmision, String marca, String estadoVehiculo,
-            int numeroCambios, double velMax, double cilindraje, double capacidadCarga, boolean aireAcondicionado,
-            boolean frenoAire, boolean sensorAbs, int numeroEjes, TipoCamion tipoCamion) {
+    public Camion(String placa,  TipoTransmision tipoTransmision, String marca, String estadoVehiculo, int numeroCambios, double velMax, double cilindraje, TipoCombustible tipoCombustible, double capacidadCarga, boolean aireAcondicionado,boolean frenoAire, boolean sensorAbs, int numeroEjes, TipoCamion tipoCamion){
 
-        super(tipoCombustible, tipoTransmision, marca, estadoVehiculo, numeroCambios, velMax, cilindraje);
+        super(placa, tipoTransmision, marca, estadoVehiculo, numeroCambios, velMax, cilindraje, tipoCombustible);
 
-        this.capacidadCarga = capacidadCarga;
-        this.aireAcondicionado = aireAcondicionado;
-        this.frenoAire = frenoAire;
-        this.sensorAbs = sensorAbs;
-        this.numeroEjes = numeroEjes;
-        this.tipoCamion = tipoCamion;
+        this.capacidadCarga=capacidadCarga;
+        this.aireAcondicionado=aireAcondicionado;
+        this.frenoAire=frenoAire;
+        this.sensorAbs=sensorAbs;
+        this.numeroEjes=numeroEjes;
+        this.tipoCamion=tipoCamion;
 
     }
 
@@ -71,5 +69,8 @@ public class Camion extends Vehiculo {
     public void setTipoCamion(TipoCamion tipoCamion) {
         this.tipoCamion = tipoCamion;
     }
+
+    
+
 
 }

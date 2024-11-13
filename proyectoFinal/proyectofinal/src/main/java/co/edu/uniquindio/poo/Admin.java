@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo;
 
-public class Admin  extends Persona{
+public class Admin  extends Persona {
 
     private String correo;
     private String contraseña;

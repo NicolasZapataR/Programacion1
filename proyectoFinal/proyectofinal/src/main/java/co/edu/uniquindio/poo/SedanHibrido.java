@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo;
 
-public class Sedan extends Vehiculo{
+public class SedanHibrido extends VehiculoHibrido {
 
     private int numeroPasajeros;
     private int numeroPuertas;
@@ -14,22 +14,21 @@ public class Sedan extends Vehiculo{
     private boolean sensorTrafico;
     private boolean sensorAsistenciaCarril;
 
-    public Sedan(String tipoCombustible, String tipoTransmision, String marca, String estadoVehiculo, int numeroCambios, double velMax, double cilindraje, int numeroPasajeros, int numeroPuertas, double capacidadMaletero, int numeroBolsasAire, boolean aireAcondicionado, boolean camaraReversa, boolean velocidadCrucero, boolean sensorAbs, boolean sensorColison, boolean sensorTrafico, boolean sensorAsistenciaCarril){
+    public SedanHibrido(String placa,  TipoTransmision tipoTransmision, String marca, String estadoVehiculo, int numeroCambios, double velMax, double cilindraje, boolean enchufable, boolean ligero, int autonomia, double tiempoCarga, int numeroPasajeros, int numeroPuertas, double capacidadMaletero, int numeroBolsasAire, boolean aireAcondicionado, boolean camaraReversa, boolean velocidadCrucero, boolean sensorAbs, boolean sensorColison, boolean sensorTrafico, boolean sensorAsistenciaCarril){
 
-        super(tipoCombustible, tipoTransmision, marca, estadoVehiculo, numeroCambios, velMax, cilindraje);
+        super(placa, tipoTransmision, marca, estadoVehiculo, numeroCambios, velMax, cilindraje, enchufable, ligero);
 
         this.numeroPasajeros=numeroPasajeros;
-        this.numeroPuertas=numeroPuertas;
-        this.capacidadMaletero=capacidadMaletero;
-        this.numeroBolsasAire=numeroBolsasAire;
-        this.aireAcondicionado=aireAcondicionado;
-        this.camaraReversa=camaraReversa;
-        this.velocidadCrucero=velocidadCrucero;
-        this.sensorAbs=sensorAbs;
-        this.sensorColison=sensorColison;
-        this.sensorTrafico=sensorTrafico;
-        this.sensorAsistenciaCarril=sensorAsistenciaCarril;
-
+       this.numeroPuertas=numeroPuertas;
+       this.capacidadMaletero=capacidadMaletero;
+       this.numeroBolsasAire=numeroBolsasAire;
+       this.aireAcondicionado=aireAcondicionado;
+       this.camaraReversa=camaraReversa;
+       this.velocidadCrucero=velocidadCrucero;
+       this.sensorAbs=sensorAbs;
+       this.sensorColison=sensorColison;
+       this.sensorTrafico=sensorTrafico;
+       this.sensorAsistenciaCarril=sensorAsistenciaCarril;
 
     }
 

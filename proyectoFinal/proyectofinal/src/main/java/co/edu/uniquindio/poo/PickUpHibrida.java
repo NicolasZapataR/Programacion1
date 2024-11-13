@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo;
 
-public class PickUp extends Vehiculo {
+public class PickUpHibrida extends VehiculoHibrido {
 
     private int numeroPasajeros;
     private int numeroPuertas;
@@ -11,20 +11,12 @@ public class PickUp extends Vehiculo {
     private boolean cuatroXcuatro;
     private double capacidadCarga;
 
-    public PickUp(String tipoCombustible, String tipoTransmision, String marca, String estadoVehiculo, int numeroCambios, double velMax, double cilindraje,int numeroPasajeros, int numeroPuertas, boolean aireAcondicionado, boolean camaraReversa,int numeroBolsasAire, boolean sensorAbs, boolean cuatroXcuatro, double capacidadCarga){
+    public PickUpHibrida(String placa,  TipoTransmision tipoTransmision, String marca, String estadoVehiculo, int numeroCambios, double velMax, double cilindraje, boolean enchufable, boolean ligero,int numeroPasajeros, int numeroPuertas, boolean aireAcondicionado, boolean camaraReversa,int numeroBolsasAire, boolean sensorAbs, boolean cuatroXcuatro, double capacidadCarga){
 
-        super(tipoCombustible, tipoTransmision, marca, estadoVehiculo, numeroCambios, velMax, cilindraje);
+        super(placa, tipoTransmision, marca, estadoVehiculo, numeroCambios, velMax, cilindraje, enchufable, ligero);
+        
 
-        this.numeroPasajeros=numeroPasajeros;
-        this.numeroPuertas= numeroPuertas;
-        this.aireAcondicionado=aireAcondicionado;
-        this.camaraReversa=camaraReversa;
-        this.numeroBolsasAire=numeroBolsasAire;
-        this.sensorAbs=sensorAbs;
-        this.cuatroXcuatro=cuatroXcuatro;
-        this.capacidadCarga=capacidadCarga;
 
-       
     }
 
     public int getNumeroPasajeros() {
@@ -92,5 +84,6 @@ public class PickUp extends Vehiculo {
     }
 
     
+
     
 }
