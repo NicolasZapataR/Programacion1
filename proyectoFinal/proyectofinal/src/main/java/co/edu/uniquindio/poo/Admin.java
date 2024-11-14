@@ -1,10 +1,18 @@
 package co.edu.uniquindio.poo;
 
-public class Admin  extends Persona {
+import java.util.Collection;
+
+public class Admin  extends Persona  implements IGestionEmpresaAdmin{
+
+    public Empresa empresa;
+    public Empleado empleado;
 
     private String correo;
     private String contraseña;
     private double salario;
+
+    private Collection <Empleado> listaEmpleados;
+
 
     public Admin( String nombre, String id, String telefono , String dirreccion,String correo, String contraseña, double salario){
 
@@ -38,6 +46,25 @@ public class Admin  extends Persona {
 
     public void setSalario(double salario) {
         this.salario = salario;
+    }
+
+
+
+    @Override
+    public void gestionarEmpleados() {
+
+        empresa.agregarEmpleado(empleado.getId());
+        empresa.buscarEmpleado(empleado.getId());
+        empresa.eliminarEmpleado(empleado.getId());
+        
+    }
+
+
+    @Override
+    public void generarReportes() {
+
+
+       
     }
 
     

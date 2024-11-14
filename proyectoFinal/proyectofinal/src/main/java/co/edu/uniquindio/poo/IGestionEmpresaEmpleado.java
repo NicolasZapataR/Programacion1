@@ -1,12 +1,12 @@
 package co.edu.uniquindio.poo;
 
-public class IGestionEmpresaEmpleado {
+public interface IGestionEmpresaEmpleado {
 
-    public String registroVehiculos;
-    public String registroClientes;
-    public Alquilar alquilar;
-    public Venta vender;
-    public Compra comprar;
+    public void registroVehiculos();
+    public void registroClientes();
+    public void alquilar();
+    public void vender();
+    public void comprar();
 
     
 }

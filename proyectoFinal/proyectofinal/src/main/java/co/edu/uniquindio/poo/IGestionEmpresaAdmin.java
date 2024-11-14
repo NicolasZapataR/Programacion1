@@ -1,12 +1,12 @@
 package co.edu.uniquindio.poo;
 
-public class IGestionEmpresaAdmin {
+public interface IGestionEmpresaAdmin {
 
-    public String registrarEmpleados;
+    
 
-    public String gestionarEmpleados;
+    public void gestionarEmpleados();
 
-    public String generarReportes;
+    public void generarReportes();
 
     
 }

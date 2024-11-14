@@ -6,6 +6,8 @@ import java.util.LinkedList;
 public class Empresa {
 
     private String nombre;
+    public Empleado empleado;
+    public Cliente cliente;
 
     private Collection <Vehiculo> listaVehiculos;
     private Collection <VehiculoElectrico> listaVehiculoElectricos;
@@ -35,6 +37,13 @@ public class Empresa {
         listaEmpleados= new LinkedList<>();
 
     }
+    //METODOS PARA SERVICOS:
+
+    public void alquiler(){
+        
+    }
+
+
 
     //METODOS PARA VEHICULOS:
 
@@ -272,6 +281,130 @@ public class Empresa {
             break;
         }
     }
+
+    //METODOS PARA EMPLEADO
+
+    /**
+     * Metodo para verificar empleado
+     * @param id
+     * @return
+     */
+    public boolean verificarEmpleado(String id) {
+        boolean centinela = false;
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado.getId().equals(id)) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
+    /**
+     * Metodo para agregar empleado
+     * @param id
+     */
+    public void agregarEmpleado(String id) {
+        if (!verificarEmpleado(empleado.getId())) {
+            listaEmpleados.add(empleado);
+            System.out.println("el" + empleado+ "fue agregado");
+        }
+    }
+
+
+    /**
+     * Metodo para buscar empleado
+     * @param id
+     * @return
+     */
+    public Empleado buscarEmpleado(String id) {
+
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado.getId().equals(id)) {
+                return empleado;
+            }
+
+        }
+        return null;
+    }
+
+
+    /**
+     * Metodo para eliminar empleados
+     * @param id
+     */
+    public void eliminarEmpleado(String id) {
+
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado.getId().equals(id)) {
+                listaEmpleados.remove(empleado);
+            }
+            
+        }
+    }
+
+    //METODOS PARA CLIENTE
+
+    /**
+     * Metodo para verificar cliente
+     * @param id
+     * @return
+     */
+    public boolean verificarCliente(String id) {
+        boolean centinela = false;
+        for (Cliente cliente : listaClientes) {
+            if (cliente.getId().equals(id)) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
+
+    
+    /**
+     * Metodo para agregar cliente
+     * @param id
+     */
+    public void agregarCliente(String id) {
+        if (!verificarCliente(cliente.getId())) {
+            listaClientes.add(cliente);
+            System.out.println("el" + cliente+ "fue agregado");
+        }
+    }
+
+    /**
+     * Metodo para buscar cliente
+     * @param id
+     * @return
+     */
+    public Cliente buscarCliente(String id) {
+
+        for (Cliente cliente : listaClientes) {
+            if (cliente.getId().equals(id)) {
+                return cliente;
+            }
+
+        }
+        return null;
+    }
+
+
+    public void eliminarCliente(String id) {
+
+        for (Cliente cliente : listaClientes) {
+            if (cliente.getId().equals(id)) {
+                listaClientes.remove(cliente);
+            }
+            break;
+        }
+    }
+
+
+
+
+
+
+
 
     
 
