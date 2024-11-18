@@ -5,9 +5,10 @@ public class Perecedero  extends Producto{
     private String fechaVencimiento;
     public Producto producto;
 
-    public Perecedero(String codigo, String nombre, double precioCompra, String proovedor, String fechaVencimiento){
+    public Perecedero(String codigo, String nombre, double precioCompra, Proveedor proveedor, String fechaVencimiento){
 
-        super(codigo, nombre, precioCompra, proovedor);
+        super(codigo, nombre, precioCompra, proveedor);
+
 
         this.fechaVencimiento=fechaVencimiento;
         this.producto=producto;

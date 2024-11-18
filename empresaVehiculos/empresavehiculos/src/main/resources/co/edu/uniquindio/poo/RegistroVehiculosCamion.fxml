@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="215.0" layoutY="25.0" text="REGISTRO VEHICULOS CAMION" />
+      <Label layoutX="33.0" layoutY="70.0" text="PLACA" />
+      <Label layoutX="31.0" layoutY="109.0" text="TIPO TRASMISION" />
+      <Label layoutX="31.0" layoutY="145.0" text="MARCA" />
+      <Label layoutX="29.0" layoutY="184.0" text="ESTADO VEHICULO" />
+      <Label layoutX="27.0" layoutY="223.0" text="NUMERO CAMBIOS" />
+      <Label layoutX="331.0" layoutY="223.0" text="VELX MAX" />
+      <Label layoutX="38.0" layoutY="259.0" text="CILINDRAJE" />
+      <Label layoutX="324.0" layoutY="70.0" text="TIPO COMBUSTIBLE" />
+      <Label layoutX="27.0" layoutY="293.0" text="CAPACIDAD CARGA" />
+      <Label layoutX="324.0" layoutY="109.0" text="AIRE ACONDICIONADO" />
+      <Label layoutX="324.0" layoutY="145.0" text="SENSOR ABS" />
+      <Label layoutX="332.0" layoutY="259.0" text="NUMERO EJES" />
+      <Label layoutX="332.0" layoutY="293.0" text="TIPO CAMION" />
+      <Label layoutX="326.0" layoutY="184.0" text="FRENO AIRE" />
+      <TextField fx:id="txtPlacaCamionRegistroVehiculoCamion" layoutX="112.0" layoutY="66.0" />
+      <TextField fx:id="txtTipoTrasmisionCamionRegistroVehiculoCamion" layoutX="141.0" layoutY="105.0" />
+      <TextField fx:id="txtMarcaCamionRegistroVehiculoCamion" layoutX="112.0" layoutY="141.0" />
+      <TextField fx:id="txtEstadoVehiculoCamionRegistroVehiculoCamion" layoutX="141.0" layoutY="180.0" />
+      <TextField fx:id="txtNumeroCambiosCamionRegistroVehiculoCamion" layoutX="151.0" layoutY="219.0" />
+      <TextField fx:id="txtCilindrajeCamionRegistroVehiculoCamion" layoutX="129.0" layoutY="255.0" />
+      <TextField fx:id="txtCapacidadCargaCamionRegistroVehiculoCamion" layoutX="151.0" layoutY="289.0" />
+      <TextField fx:id="txtTipoCombustibleCamionRegistroVehiculoCamion" layoutX="437.0" layoutY="66.0" />
+      <TextField fx:id="txtAireAcondiconadoCamionRegistroVehiculoCamion" layoutX="460.0" layoutY="105.0" prefHeight="25.0" prefWidth="127.0" />
+      <TextField fx:id="txtSensorAbsCamionRegistroVehiculoCamion" layoutX="417.0" layoutY="141.0" />
+      <TextField fx:id="txtFrenoAireCamionRegistroVehiculoCamion" layoutX="417.0" layoutY="180.0" />
+      <TextField fx:id="txtVelMaxCamionRegistroVehiculoCamion" layoutX="423.0" layoutY="219.0" />
+      <TextField fx:id="txtNumeroEjesCamion" layoutX="430.0" layoutY="255.0" />
+      <TextField fx:id="txtTipoCamion" layoutX="430.0" layoutY="298.0" />
+      <Button fx:id="buttonRegistrarCamion" layoutX="479.0" layoutY="343.0" mnemonicParsing="false" onAction="#registrarVehiculoCamionAction" text="registrar camion" />
+   </children>
+</AnchorPane>

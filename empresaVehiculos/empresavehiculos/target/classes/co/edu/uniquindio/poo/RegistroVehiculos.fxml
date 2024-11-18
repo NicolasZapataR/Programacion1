@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="237.0" layoutY="22.0" text="REGISTRO VEHICULOS" />
+      <Button fx:id="buttonCamionRegistroVehiculos" layoutX="153.0" layoutY="108.0" mnemonicParsing="false" onAction="#seleccionarTipoCamionRegistroVehiculosAction" text="CAMION" />
+      <Button fx:id="buttonCamionetaElectricaRegistroVehiculos" layoutX="113.0" layoutY="158.0" mnemonicParsing="false" onAction="#seleccionarTipoCamionetaElectricaRegistroVehiculosAction" text="CAMIONETA ELECTRICA" />
+      <Button fx:id="buttonDeportivoRegistroVehiculos" layoutX="164.0" layoutY="205.0" mnemonicParsing="false" onAction="#seleccionarTipoDeportivoRegistroVehiculosAction" text="DEPORTIVO" />
+      <Button fx:id="buttonMotoElectricaRegistroVehiculos" layoutX="356.0" layoutY="108.0" mnemonicParsing="false" onAction="#seleccionarTipoMotoElectricaRegistroVehiculosAction" text="MOTO ELECTRICA" />
+      <Button fx:id="buttonPickupHibridaRegistroVehiculos" layoutX="360.0" layoutY="158.0" mnemonicParsing="false" onAction="#seleccionarTipoPickupHibridaRegistroVehiculosAction" text="PICKUP HIBRIDA" />
+      <Button fx:id="buttonSedaElectricoRegistroVehiculos" layoutX="348.0" layoutY="205.0" mnemonicParsing="false" onAction="#seleccionarTipoSedanElectricoRegistroVehiculosAction" text="SEDAN ELECTRICO" />
+      <Button fx:id="buttonSedanHibridoRegistroVehiculos" layoutX="152.0" layoutY="245.0" mnemonicParsing="false" onAction="#seleccionarTipoSedanHibridoRegistroVehiculosAction" text="SEDAN HIBRIDO" />
+      <Button fx:id="buttonVanRegistroVehiculos" layoutX="360.0" layoutY="258.0" mnemonicParsing="false" onAction="#seleccionarTipoVanRegistroVehiculosAction" text="VAN" />
+      <Text layoutX="130.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECCIONE EL TIPO DE VEHICULO QUE DESE REGISTRAR" />
+   </children>
+</AnchorPane>

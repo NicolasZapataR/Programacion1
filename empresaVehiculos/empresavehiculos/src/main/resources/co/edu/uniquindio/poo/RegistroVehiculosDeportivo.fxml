@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="214.0" layoutY="25.0" text="REGISTRO VEHICULO DEPOTIVO" />
+      <Label layoutX="25.0" layoutY="58.0" text="PLACA" />
+      <Label layoutX="25.0" layoutY="91.0" text="TRASMISION" />
+      <Label layoutX="25.0" layoutY="126.0" text="MARCA" />
+      <Label layoutX="25.0" layoutY="159.0" text="ESTADO VEHICULO" />
+      <Label layoutX="25.0" layoutY="192.0" text="NUMERO CAMBIOS" />
+      <Label layoutX="25.0" layoutY="228.0" text="VEL MAX" />
+      <Label layoutX="25.0" layoutY="264.0" text="COLINDRAJE" />
+      <Label layoutX="25.0" layoutY="296.0" text="COMBUSTIBLE" />
+      <Label layoutX="321.0" layoutY="58.0" text="NUMERO PASAJEROS" />
+      <Label layoutX="321.0" layoutY="91.0" text="NUMERO PUERTAS" />
+      <Label layoutX="321.0" layoutY="126.0" text="CABALLOS DE FUERZA" />
+      <Label layoutX="321.0" layoutY="159.0" text="ACELERACION" />
+      <TextField fx:id="txtPlacaDeportivo" layoutX="78.0" layoutY="54.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtTrasmisonDeportivo" layoutX="102.0" layoutY="87.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtMarcaDeportivo" layoutX="78.0" layoutY="122.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtEstadoVehiculoDeportivo" layoutX="131.0" layoutY="155.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtNcambiosDeportivo" layoutX="139.0" layoutY="188.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtVelMaxDeportivo" layoutX="78.0" layoutY="224.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtCilindrajeDeportivo" layoutX="95.0" layoutY="260.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtCombustibleDeportivo" layoutX="109.0" layoutY="292.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtNpasajerosDeportivo" layoutX="441.0" layoutY="54.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtNpuertasDeportivo" layoutX="441.0" layoutY="87.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtCaballosFuerzaDeportivo" layoutX="451.0" layoutY="122.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtAceleracionDeportivo" layoutX="408.0" layoutY="155.0" prefHeight="25.0" prefWidth="135.0" />
+      <Button fx:id="buttonAgregarDeportivo" layoutX="424.0" layoutY="330.0" mnemonicParsing="false" onAction="#agregarDeportivoAction" text="agregar vehiculo deportivo" />
+   </children>
+</AnchorPane>

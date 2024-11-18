@@ -1,7 +1,9 @@
 package co.edu.uniquindio.poo;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Empresa {
 
@@ -9,47 +11,168 @@ public class Empresa {
     public Empleado empleado;
     public Cliente cliente;
 
-    private Collection <Vehiculo> listaVehiculos;
-    private Collection <VehiculoElectrico> listaVehiculoElectricos;
-    private Collection <VehiculoHibrido> listaVehiculoHibridos;
 
+    private Collection<Vehiculo> listaVehiculos;
+    private Collection<VehiculoElectrico> listaVehiculoElectricos;
+    private Collection<VehiculoHibrido> listaVehiculoHibridos;
 
-    private Collection <Vehiculo> listaVehiculosVenta;
-    private Collection <Vehiculo> listaVehiculosAlquiler;
-    private Collection <Vehiculo> listaVehiculosCompra;
+    private Collection<Vehiculo> listaVehiculosVenta;
+    private Collection<Vehiculo> listaVehiculosAlquiler;
+    private Collection<Vehiculo> listaVehiculosCompra;
 
-    private Collection <Cliente> listaClientes;
-    private Collection <Empleado> listaEmpleados;
+    private Collection<Registro> listaRegistroNegocios;
+    private Collection<Registro> listaNegociosEmpleado;
 
-    public Empresa (String nombre){
+    private Collection<Cliente> listaClientes;
+    private Collection<Empleado> listaEmpleados;
 
-        this.nombre= nombre;
+    public Empresa(String nombre) {
 
-        listaVehiculos= new LinkedList<>();
-        listaVehiculoElectricos= new LinkedList<>();
-        listaVehiculoHibridos= new LinkedList<>();
+        this.nombre = nombre;
 
-        listaVehiculosAlquiler= new LinkedList<>();
-        listaVehiculosVenta= new LinkedList<>();
-        listaVehiculosCompra= new LinkedList<>();
+        listaVehiculos = new LinkedList<>();
+        listaVehiculoElectricos = new LinkedList<>();
+        listaVehiculoHibridos = new LinkedList<>();
 
-        listaClientes= new LinkedList<>();
-        listaEmpleados= new LinkedList<>();
+        listaVehiculosAlquiler = new LinkedList<>();
+        listaVehiculosVenta = new LinkedList<>();
+        listaVehiculosCompra = new LinkedList<>();
+
+        listaRegistroNegocios= new LinkedList<>();
+        listaNegociosEmpleado= new LinkedList<>();
+
+        listaClientes = new LinkedList<>();
+        listaEmpleados = new LinkedList<>();
 
     }
-    //METODOS PARA SERVICOS:
-
-    public void alquiler(){
-        
-    }
-
-
-
-    //METODOS PARA VEHICULOS:
+    // METODOS PARA SERVICOS:
 
 
     /**
+     * Metodo para verificar alquiler
+     * @param codigo
+     * @return
+     */
+    public boolean verificarAlquiler(String codigo) {
+        boolean centinela = false;
+        for (Vehiculo vehiculo : listaVehiculosAlquiler) {
+            if (vehiculo.getPlaca().equals(vehiculo.getPlaca())) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
+    /**
+     * Metodo para hacer alquiler
+     */
+    public void hacerAlquiler(int dias, double valor) {
+
+        int cont= empleado.getNumeroVehiculosAlquilados();
+
+        for (Vehiculo vehiculo : listaVehiculosAlquiler) {
+            if (!verificarAlquiler(vehiculo.getPlaca())) {
+                vehiculo.getEstadoVehiculo();
+                String estado = "alquilado";
+                vehiculo.setEstadoVehiculo(estado);
+                valor = (dias * valor);
+                
+                for(int i=0; i>listaVehiculosAlquiler.size();i++){
+                empleado.setNumeroVehiculosAlquilados(cont+1);
+                }
+                System.out.println("el vehiculo ha sido alquilado"+ "el costo es" + valor);
+                registrarAlquiler(estado, vehiculo, valor, cliente, empleado);
+
+            }
+            System.out.println("El vehiculo no esta disponible");
+        }
+
+    }
+
+    /**
+     * Metodo para verificar compra
+     * @param codigo
+     * @return
+     */
+
+    public boolean verificarCompra(String codigo) {
+        boolean centinela = false;
+        for (Vehiculo vehiculo : listaVehiculosCompra) {
+            if (vehiculo.getPlaca().equals(vehiculo.getPlaca())) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
+    /**
+     * Metodo para hacer compra
+     */
+    public void hacerCompra(){
+
+        int cont= empleado.getNumeroVehiculosComprados();
+
+        for (Vehiculo vehiculo : listaVehiculosCompra) {
+            if (!verificarCompra(vehiculo.getPlaca())) {
+                vehiculo.getEstadoVehiculo();
+                String estado = "Comprado";
+                vehiculo.setEstadoVehiculo(estado);
+                for(int i=0; i>listaVehiculosCompra.size();i++){
+                    empleado.setNumeroVehiculosComprados(cont+1);
+                }
+                System.out.println("el vehiculo ha sido comprado");
+                registrarCompra(estado, vehiculo, cont, cliente, empleado);
+
+            }
+            System.out.println("El vehiculo no esta disponible");
+        }
+    }
+
+    /**
+     * Metodo para verificar venta
+     * @param codigo
+     * @return
+     */
+    public boolean verificarVenta(String codigo) {
+        boolean centinela = false;
+        for (Vehiculo vehiculo : listaVehiculosVenta) {
+            if (vehiculo.getPlaca().equals(vehiculo.getPlaca())) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
+    /**
+     * MEtodo para hacer venta
+     */
+    public void hacerVenta(){
+
+        int cont= empleado.getNumeroVehiculosVendidos();
+
+        for (Vehiculo vehiculo : listaVehiculosVenta) {
+            if (!verificarVenta(vehiculo.getPlaca())) {
+                vehiculo.getEstadoVehiculo();
+                String estado = "vendido";
+                vehiculo.setEstadoVehiculo(estado);
+                for(int i=0; i>listaVehiculosVenta.size();i++){
+                    empleado.setNumeroVehiculosVendidos(cont+1);
+                }
+                System.out.println("el vehiculo ha sido vendido");
+                registrarVenta(estado, vehiculo, cont, cliente, empleado);
+
+            }
+            System.out.println("El vehiculo no esta disponible");
+        }
+    }
+
+
+
+    // METODOS PARA VEHICULOS:
+
+    /**
      * Metodo para verificar vehiculo
+     * 
      * @param placa
      * @return
      */
@@ -65,6 +188,7 @@ public class Empresa {
 
     /**
      * Metodo para verificar vehiculo en la lista de vehiculos en alquiler
+     * 
      * @param placa
      * @return
      */
@@ -78,9 +202,9 @@ public class Empresa {
         return centinela;
     }
 
-
     /**
      * Metodo para verificar vehiculo en la lista de vehiculos en venta
+     * 
      * @param placa
      * @return
      */
@@ -94,9 +218,9 @@ public class Empresa {
         return centinela;
     }
 
-
     /**
      * Metodo para verificar vehiculo en la lista de vehiculo que se quieren comprar
+     * 
      * @param placa
      * @return
      */
@@ -110,9 +234,9 @@ public class Empresa {
         return centinela;
     }
 
-
     /**
      * Metodo para agregar vehiculo a la lista de vehiculos
+     * 
      * @param vehiculo
      */
     public void agregarVehiculo(Vehiculo vehiculo) {
@@ -124,6 +248,7 @@ public class Empresa {
 
     /**
      * Metodo para agregar vehiculo a la lista de vehiculos en alquiler
+     * 
      * @param vehiculo
      */
     public void agregarVehiculoAlquiler(Vehiculo vehiculo) {
@@ -133,9 +258,9 @@ public class Empresa {
         }
     }
 
-
     /**
      * Metodo para agregar vehiculo a la lista de vehiculos en venta
+     * 
      * @param vehiculo
      */
     public void agregarVehiculoVenta(Vehiculo vehiculo) {
@@ -147,6 +272,7 @@ public class Empresa {
 
     /**
      * Metodo para agregar vehiculo a la lista de Vehiculos que se quieren comprar
+     * 
      * @param vehiculo
      */
     public void agregarVehiculoCompra(Vehiculo vehiculo) {
@@ -158,6 +284,7 @@ public class Empresa {
 
     /**
      * Metodo para buscar un vehiculo en la lista de vehiculos
+     * 
      * @param placa
      * @return
      */
@@ -174,6 +301,7 @@ public class Empresa {
 
     /**
      * Metodo para buscar un vehiculo en la lista de vehiculos en alquiler
+     * 
      * @param placa
      * @return
      */
@@ -188,9 +316,9 @@ public class Empresa {
         return null;
     }
 
-
     /**
      * Metodo para buscar un vehiculo en la lista de vehiculos en venta
+     * 
      * @param placa
      * @return
      */
@@ -202,13 +330,14 @@ public class Empresa {
             }
 
         }
-        
+
         return null;
     }
 
-
     /**
-     * Metodo para buscar un vehiculo en la lista de vehiculos que se quieren comprar
+     * Metodo para buscar un vehiculo en la lista de vehiculos que se quieren
+     * comprar
+     * 
      * @param placa
      * @return
      */
@@ -223,9 +352,9 @@ public class Empresa {
         return null;
     }
 
-
     /**
      * Metodo para eliminar un vehiculo de la lista de vehiculos
+     * 
      * @param placa
      */
     public void eliminarVehiculo(String placa) {
@@ -240,6 +369,7 @@ public class Empresa {
 
     /**
      * Metodo para eliminar un vehiculo de la lista de vehiculos en alquiler
+     * 
      * @param placa
      */
     public void eliminarVehiculoAlquiler(String placa) {
@@ -252,9 +382,9 @@ public class Empresa {
         }
     }
 
-
     /**
      * Metodo para eliminar un vehiculo de la lista de vehiculos en venta
+     * 
      * @param placa
      */
     public void eliminarVehiculoVenta(String placa) {
@@ -267,9 +397,10 @@ public class Empresa {
         }
     }
 
-
     /**
-     * Metodo para eliminar un vehiculo de la lista de vehiculos que se quieren comprar
+     * Metodo para eliminar un vehiculo de la lista de vehiculos que se quieren
+     * comprar
+     * 
      * @param placa
      */
     public void eliminarVehiculoCompra(String placa) {
@@ -282,10 +413,11 @@ public class Empresa {
         }
     }
 
-    //METODOS PARA EMPLEADO
+    // METODOS PARA EMPLEADO
 
     /**
      * Metodo para verificar empleado
+     * 
      * @param id
      * @return
      */
@@ -301,18 +433,19 @@ public class Empresa {
 
     /**
      * Metodo para agregar empleado
+     * 
      * @param id
      */
     public void agregarEmpleado(String id) {
         if (!verificarEmpleado(empleado.getId())) {
             listaEmpleados.add(empleado);
-            System.out.println("el" + empleado+ "fue agregado");
+            System.out.println("el" + empleado + "fue agregado");
         }
     }
 
-
     /**
      * Metodo para buscar empleado
+     * 
      * @param id
      * @return
      */
@@ -327,9 +460,9 @@ public class Empresa {
         return null;
     }
 
-
     /**
      * Metodo para eliminar empleados
+     * 
      * @param id
      */
     public void eliminarEmpleado(String id) {
@@ -338,14 +471,47 @@ public class Empresa {
             if (empleado.getId().equals(id)) {
                 listaEmpleados.remove(empleado);
             }
-            
+
         }
     }
 
-    //METODOS PARA CLIENTE
+
+    /**
+     * Metodo para actualizar datos del empleado
+     * @param esAdmin
+     * @param salario
+     * @param correo
+     * @param contraseña
+     * @param numeroVehiculosAlquilados
+     * @param numeroVehiculosComprados
+     * @param numeroVehiculosVendidos
+     * @return
+     */
+    public Empleado actualizarDatos(boolean esAdmin,double salario,String correo,String contraseña,int numeroVehiculosAlquilados,int numeroVehiculosComprados, int numeroVehiculosVendidos) {
+
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado.getId().equals(empleado.getId())) {
+                empleado.setEsAdmin(esAdmin);
+                empleado.setSalario(salario);
+                empleado.setCorreo(correo);
+                empleado.setContraseña(contraseña);
+                empleado.setNumeroVehiculosAlquilados(numeroVehiculosAlquilados);
+                empleado.setNumeroVehiculosComprados(numeroVehiculosComprados);
+                empleado.setNumeroVehiculosVendidos(numeroVehiculosVendidos);
+
+
+                return empleado;
+            }
+        }
+        return null;
+        
+    }
+
+    // METODOS PARA CLIENTE
 
     /**
      * Metodo para verificar cliente
+     * 
      * @param id
      * @return
      */
@@ -359,21 +525,21 @@ public class Empresa {
         return centinela;
     }
 
-
-    
     /**
      * Metodo para agregar cliente
+     * 
      * @param id
      */
     public void agregarCliente(String id) {
         if (!verificarCliente(cliente.getId())) {
             listaClientes.add(cliente);
-            System.out.println("el" + cliente+ "fue agregado");
+            System.out.println("el" + cliente + "fue agregado");
         }
     }
 
     /**
      * Metodo para buscar cliente
+     * 
      * @param id
      * @return
      */
@@ -387,8 +553,11 @@ public class Empresa {
         }
         return null;
     }
-
-
+    
+    /**
+     * Metodopo para eliminar cliente
+     * @param id
+     */
     public void eliminarCliente(String id) {
 
         for (Cliente cliente : listaClientes) {
@@ -400,35 +569,87 @@ public class Empresa {
     }
 
 
+    //Metodos para registro
+
+    /**
+     * Metodo para registrar un alquiler a la lista de registro
+     * @param codigoRegistro
+     * @param tipoNegocio
+     * @param fecha
+     * @param vehiculo
+     * @param valor
+     * @param cliente
+     * @param empleado
+     */
+    public void registrarAlquiler(String tipoNegocio, Vehiculo vehiculo,  double valor, Cliente cliente, Empleado empleado) {
+
+        Registro registro = new Registro( tipoNegocio,  vehiculo, valor, cliente, empleado);
+        
+        listaRegistroNegocios.add(registro);
+       
+
+        System.out.println("Alquiler registrado: " + registro);
+    }
+
+    /**
+     * Metodo para registrar venta
+     * @param codigoRegistro
+     * @param tipoNegocio
+     * @param fecha
+     * @param vehiculo
+     * @param valor
+     * @param cliente
+     * @param empleado
+     */
+    public void registrarVenta(String tipoNegocio, Vehiculo vehiculo,  double valor, Cliente cliente, Empleado empleado) {
+
+        Registro registro = new Registro( tipoNegocio,  vehiculo, valor, cliente, empleado);
+        
+        listaRegistroNegocios.add(registro);
+        
+
+        System.out.println("Venta registrada: " + registro);
+    }
+
+    /**
+     * Metodo para registrar compra
+     * @param codigoRegistro
+     * @param tipoNegocio
+     * @param fecha
+     * @param vehiculo
+     * @param valor
+     * @param cliente
+     * @param empleado
+     */
+    public void registrarCompra(String tipoNegocio, Vehiculo vehiculo,  double valor, Cliente cliente, Empleado empleado) {
+
+        Registro registro = new Registro( tipoNegocio,  vehiculo, valor, cliente, empleado);
+        
+        listaRegistroNegocios.add(registro);
+       
+
+        System.out.println("compra registrada: " + registro);
+    }
 
 
+   /**
+    * Metodo para obetener la lista de los negocios hechos por un emplado
+    * @param empleado
+    */
+    public Collection<Registro> obtenerNegociosPorEmpleado(Empleado empleado) {
 
+        listaNegociosEmpleado = new LinkedList<>();
 
+        for (Registro registro : listaRegistroNegocios) {
 
+            if (registro.getEmpleado().equals(empleado)){
 
-    
-
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-    
-
+                listaNegociosEmpleado.add(registro);
+            }
+        }
+        
+        return listaNegociosEmpleado;
+       
+    }
 
 }

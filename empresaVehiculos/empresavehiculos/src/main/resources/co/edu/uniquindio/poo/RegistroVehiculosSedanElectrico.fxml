@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="189.0" layoutY="14.0" text="REGISTRO VEHICULOS SEDAN ELECTRICO" />
+      <Label layoutX="14.0" layoutY="46.0" text="PLACA" />
+      <Label layoutX="14.0" layoutY="79.0" text="TRASMISON" />
+      <Label layoutX="14.0" layoutY="112.0" text="MARCA" />
+      <Label layoutX="14.0" layoutY="145.0" text="ESTADO VEHICULO" />
+      <Label layoutX="14.0" layoutY="177.0" text="NUMERO CAMBIOS" />
+      <Label layoutX="14.0" layoutY="209.0" text="VEL MAX" />
+      <Label layoutX="14.0" layoutY="242.0" text="CILINDRAJE" />
+      <Label layoutX="14.0" layoutY="275.0" text="AUTONOMIA" />
+      <Label layoutX="14.0" layoutY="309.0" text="TIEMPO CARGA" />
+      <Label layoutX="14.0" layoutY="340.0" text="NUMERO PASAJEROS" />
+      <Label layoutX="14.0" layoutY="369.0" text="NUMERO PUERTAS" />
+      <Label layoutX="286.0" layoutY="46.0" text="CAPACIDAD MALETERO" />
+      <Label layoutX="286.0" layoutY="79.0" text="NUMERO BOLSAS DE AIRE" />
+      <Label layoutX="286.0" layoutY="112.0" text="AIRE ACONDICIONADO" />
+      <Label layoutX="286.0" layoutY="145.0" text="CAMARA REVERSA" />
+      <Label layoutX="286.0" layoutY="177.0" text="VELOCIDAD CRUCERO" />
+      <Label layoutX="286.0" layoutY="209.0" text="SENSOR ABS" />
+      <Label layoutX="286.0" layoutY="242.0" text="SENSOR COLISON" />
+      <Label layoutX="286.0" layoutY="275.0" text="SENSOR TRAFICO" />
+      <Label layoutX="285.0" layoutY="310.0" text="SENSOR ASISTECIA CARRIL" />
+      <TextField fx:id="txtPlacaSedanElectrico" layoutX="77.0" layoutY="42.0" />
+      <TextField fx:id="txtTrasmisonSedanElectrico" layoutX="86.0" layoutY="75.0" />
+      <TextField fx:id="txtMarcaSedanElectrico" layoutX="63.0" layoutY="108.0" />
+      <TextField fx:id="txtEstadoVehiculoSedanElectrico" layoutX="120.0" layoutY="141.0" prefHeight="25.0" prefWidth="141.0" />
+      <TextField fx:id="txtNcambiosSedanElectrico" layoutX="130.0" layoutY="173.0" prefHeight="25.0" prefWidth="127.0" />
+      <TextField fx:id="txtVelMaxSedanElectrico" layoutX="77.0" layoutY="205.0" />
+      <TextField fx:id="txtCilindrajeSedanElectrico" layoutX="86.0" layoutY="238.0" />
+      <TextField fx:id="txtAutonomiaSedanElectrico" layoutX="98.0" layoutY="271.0" />
+      <TextField fx:id="txtTiempoCargaSedanElectrico" layoutX="115.0" layoutY="306.0" />
+      <TextField fx:id="txtNpasajerosSedanElectrico" layoutX="138.0" layoutY="336.0" />
+      <TextField fx:id="txtNpuertasSedanElectrico" layoutX="130.0" layoutY="365.0" />
+      <TextField fx:id="txtCapacidaMaleteroSedanElectrico" layoutX="413.0" layoutY="42.0" />
+      <TextField fx:id="txtNbolsasAire" layoutX="430.0" layoutY="75.0" />
+      <TextField fx:id="txtAireAcondiconadoSedanElectrico" layoutX="427.0" layoutY="108.0" />
+      <TextField fx:id="txtCamaraReversaSedanElectrico" layoutX="406.0" layoutY="141.0" />
+      <TextField fx:id="txtVelocidadCruceroSedanElectrico" layoutX="413.0" layoutY="173.0" />
+      <TextField fx:id="txtSensorAbsSedanElectrico" layoutX="374.0" layoutY="205.0" />
+      <TextField fx:id="txtSensorColisionSedanElectrico" layoutX="396.0" layoutY="238.0" />
+      <TextField fx:id="txtSensorTraficoSedanElectrico" layoutX="396.0" layoutY="271.0" />
+      <TextField fx:id="txtSensorCarrilSedanElectrico" layoutX="438.0" layoutY="306.0" prefHeight="25.0" prefWidth="127.0" />
+      <Button fx:id="buttonAgregarSedanElectrico" layoutX="438.0" layoutY="357.0" mnemonicParsing="false" onAction="#agregarSedanElectricoAction" text="agregar sendan electrico" />
+   </children>
+</AnchorPane>

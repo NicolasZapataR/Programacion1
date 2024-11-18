@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="195.0" layoutY="14.0" text="REGISTRO VEHICULOS PICKUP HIBRIDA" />
+      <Label layoutX="14.0" layoutY="54.0" text="PLACA" />
+      <Label layoutX="14.0" layoutY="94.0" text="TRASMISION" />
+      <Label layoutX="14.0" layoutY="130.0" text="MARCA" />
+      <Label layoutX="14.0" layoutY="168.0" text="ESTADO VEHICULO" />
+      <Label layoutX="14.0" layoutY="208.0" text="NUMERO CAMBIOS" />
+      <Label layoutX="14.0" layoutY="247.0" text="VEL MAX" />
+      <Label layoutX="14.0" layoutY="285.0" text="CILINDRAJE" />
+      <Label layoutX="14.0" layoutY="327.0" text="ENCHUFABLE" />
+      <Label layoutX="14.0" layoutY="361.0" text="LIGERO" />
+      <Label layoutX="272.0" layoutY="54.0" text="NUMERO PASAJEROS" />
+      <Label layoutX="272.0" layoutY="94.0" text="NUMERO PUERTAS" />
+      <Label layoutX="272.0" layoutY="130.0" text="AIRE ACONDICONADO" />
+      <Label layoutX="272.0" layoutY="168.0" text="CAMARA REVERSA" />
+      <Label layoutX="272.0" layoutY="208.0" text="NUMERO BOLSA DE AIRE" />
+      <Label layoutX="272.0" layoutY="256.0" text="SENSOR ABS" />
+      <Label layoutX="272.0" layoutY="285.0" text="4X4" />
+      <Label layoutX="272.0" layoutY="327.0" text="CAPACIDAD CARGA" />
+      <TextField fx:id="txtPLacaPickupHibrida" layoutX="63.0" layoutY="50.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtTrasmisonPickupHibrida" layoutX="94.0" layoutY="90.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtMarcaPickupHibrida" layoutX="67.0" layoutY="126.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtEstadoVehiculoPickupHibrida" layoutX="121.0" layoutY="164.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtNcambiosPickupHibrida" layoutX="128.0" layoutY="204.0" prefHeight="25.0" prefWidth="116.0" />
+      <TextField fx:id="txtVelMaxPickupHibrida" layoutX="67.0" layoutY="243.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtCilindrajePickupHibrida" layoutX="87.0" layoutY="281.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtEnchufablePickupHibrida" layoutX="94.0" layoutY="323.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtLigeroPickupHibrida" layoutX="60.0" layoutY="357.0" prefHeight="25.0" prefWidth="123.0" />
+      <TextField fx:id="txtNpasajerosPickupHibrida" layoutX="395.0" layoutY="50.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtNpuertasPickupHibrida" layoutX="388.0" layoutY="90.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtAireAcondiconadoPickupHibrida" layoutX="405.0" layoutY="126.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtCamaraReversaPickupHibrida" layoutX="381.0" layoutY="164.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtNbolsasAirePickupHibrida" layoutX="417.0" layoutY="204.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="txtSensorAbsPickupHibrida" layoutX="361.0" layoutY="253.0" />
+      <TextField fx:id="txt4x4PickupHibrida" layoutX="313.0" layoutY="282.0" prefHeight="26.0" prefWidth="143.0" />
+      <TextField fx:id="txtCapacidadCargaPickupHibrida" layoutX="398.0" layoutY="324.0" />
+      <Button fx:id="buttonAgregarPickupHibrida" layoutX="437.0" layoutY="358.0" mnemonicParsing="false" onAction="#agregarPickupHibridaAction" text="agregar pickup hibrida" />
+   </children>
+</AnchorPane>
