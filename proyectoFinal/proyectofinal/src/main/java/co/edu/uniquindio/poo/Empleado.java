@@ -7,20 +7,20 @@ public class Empleado extends Persona implements IGestionEmpresa {
     private boolean esAdmin;
     private double salario;
     private String correo;
-    private String contraseña;
+    
     private int numeroVehiculosAlquilados;
     private int numeroVehiculosComprados;
     private int numeroVehiculosVendidos;
 
     public Empleado(boolean esAdmin, String nombre, String id, String telefono, String dirreccion, double salario,
-            String correo, String contraseña, int numeroVehiculosAlquilados, int numeroVehiculosComprados,
+            String correo, int numeroVehiculosAlquilados, int numeroVehiculosComprados,
             int numeroVehiculosVendidos) {
 
         super(nombre, id, telefono, dirreccion);
 
         this.salario = salario;
         this.correo = correo;
-        this.contraseña = contraseña;
+        
         this.numeroVehiculosAlquilados = numeroVehiculosAlquilados;
         this.numeroVehiculosComprados = numeroVehiculosComprados;
         this.numeroVehiculosVendidos = numeroVehiculosVendidos;
@@ -51,13 +51,7 @@ public class Empleado extends Persona implements IGestionEmpresa {
         this.correo = correo;
     }
 
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
+    
 
     public int getNumeroVehiculosAlquilados() {
         return numeroVehiculosAlquilados;
@@ -87,10 +81,10 @@ public class Empleado extends Persona implements IGestionEmpresa {
     // Administrador
 
     @Override
-    public void registoEmpleados(Empresa empresa, Empleado empleado) {
+    public void agregarEmpleadoListaEmpleado(Empresa empresa, Empleado empleado) {
 
         if(empleado.getEsAdmin()==true){
-            empresa.agregarEmpleado(empleado.getId());
+            empresa.agregarEmpleadoLista(empleado.getId());
         }
         else{
             System.out.println("El empleado no puede registrar");
@@ -127,11 +121,11 @@ public class Empleado extends Persona implements IGestionEmpresa {
     }
 
     @Override
-    public void actualizarDatos(Empresa empresa,Empleado empleado) {
+    public void actualizarDatosEmpleado(Empresa empresa,Empleado empleado) {
 
         if(empleado.getEsAdmin()==true){
 
-            empresa.actualizarDatos(esAdmin, salario, correo, contraseña, numeroVehiculosAlquilados, numeroVehiculosComprados, numeroVehiculosVendidos);
+            empresa.actualizarDatos(esAdmin, salario, correo, numeroVehiculosAlquilados, numeroVehiculosComprados, numeroVehiculosVendidos);
 
         }
         else{
@@ -160,7 +154,7 @@ public class Empleado extends Persona implements IGestionEmpresa {
     //EMPLEADO
 
     @Override
-    public void registroVehiculosVenta(Vehiculo vehiculo, Empresa empresa, Empleado empleado) {
+    public void registroVehiculosListaVenta(Vehiculo vehiculo, Empresa empresa, Empleado empleado) {
 
         if(empleado.getEsAdmin()==false){
 
@@ -175,7 +169,7 @@ public class Empleado extends Persona implements IGestionEmpresa {
     }
 
     @Override
-    public void registroVehiculosCompra(Vehiculo vehiculo, Empresa empresa, Empleado empleado) {
+    public void registroVehiculosListaCompra(Vehiculo vehiculo, Empresa empresa, Empleado empleado) {
         
         if (empleado.getEsAdmin()==false){
 
@@ -189,13 +183,95 @@ public class Empleado extends Persona implements IGestionEmpresa {
     }
 
     @Override
-    public void registroVehiculosAlquiler(Vehiculo vehiculo, Empresa empresa, Empleado empleado) {
+    public void registroVehiculosListaAlquiler(Vehiculo vehiculo, Empresa empresa, Empleado empleado) {
 
         if(empleado.getEsAdmin()==false){
             empresa.agregarVehiculoAlquiler(vehiculo);
         }
         else{
             System.out.println("el administrador no puede agregar vehiculos");
+
+        }
+        
+    }
+
+    @Override
+    public void buscarVehiculoListaVenta(Vehiculo vehiculo, Empresa empresa ,Empleado empleado) {
+
+        if(empleado.getEsAdmin()==false){
+            empresa.buscarVehiculoVenta(vehiculo.getPlaca());
+        }
+        else{
+            System.out.println("el administrador no puede buscar vehiculos");
+
+        }
+       
+    }
+
+    @Override
+    public void buscarVehiculoListaCompra(Vehiculo vehiculo, Empresa empresa,Empleado empleado) {
+
+        if(empleado.getEsAdmin()==false){
+            empresa.buscarVehiculoCompra(vehiculo.getPlaca());
+        }
+        else{
+            System.out.println("el administrador no puede buscar vehiculos");
+
+        }
+
+        
+
+    }
+
+    @Override
+    public void buscarVehiculoListaAlquiler(Vehiculo vehiculo, Empresa empresa, Empleado empleado) {
+
+        if(empleado.getEsAdmin()==false){
+            empresa.buscarVehiculoAlquiler(vehiculo.getPlaca());
+        }
+        else{
+            System.out.println("el administrador no puede buscar vehiculos");
+
+        }
+
+        
+    }
+
+    @Override
+    public void eliminarVehiculoListaVenta(Vehiculo vehiculo, Empresa empresa, Empleado empleado) {
+
+        if(empleado.getEsAdmin()==false){
+            empresa.eliminarVehiculoVenta(vehiculo.getPlaca());
+        }
+        else{
+            System.out.println("el administrador no puede buscar vehiculos");
+
+        }
+
+        
+    }
+
+    @Override
+    public void eliminarVehiculoListaCompra(Vehiculo vehiculo, Empresa empresa , Empleado empleado) {
+        
+        if(empleado.getEsAdmin()==false){
+            empresa.eliminarVehiculoCompra(vehiculo.getPlaca());
+        }
+        else{
+            System.out.println("el administrador no puede buscar vehiculos");
+
+        }
+        
+    }
+
+    @Override
+    public void eliminarVehiculoListaAlquiler(Vehiculo vehiculo, Empresa empresa, Empleado empleado) {
+
+        if(empleado.getEsAdmin()==false){
+            empresa.eliminarVehiculoAlquiler(vehiculo.getPlaca());
+        }
+        else{
+            System.out.println("el administrador no puede buscar vehiculos");
 
         }
         
@@ -284,6 +360,8 @@ public class Empleado extends Persona implements IGestionEmpresa {
 
 
     }
+
+    
 
     
 

@@ -12,9 +12,8 @@ public class Empresa {
     public Cliente cliente;
 
 
-    private Collection<Vehiculo> listaVehiculos;
-    private Collection<VehiculoElectrico> listaVehiculoElectricos;
-    private Collection<VehiculoHibrido> listaVehiculoHibridos;
+    public Collection<Vehiculo> listaVehiculos;
+    
 
     private Collection<Vehiculo> listaVehiculosVenta;
     private Collection<Vehiculo> listaVehiculosAlquiler;
@@ -31,8 +30,7 @@ public class Empresa {
         this.nombre = nombre;
 
         listaVehiculos = new LinkedList<>();
-        listaVehiculoElectricos = new LinkedList<>();
-        listaVehiculoHibridos = new LinkedList<>();
+       
 
         listaVehiculosAlquiler = new LinkedList<>();
         listaVehiculosVenta = new LinkedList<>();
@@ -45,7 +43,20 @@ public class Empresa {
         listaEmpleados = new LinkedList<>();
 
     }
+
+    public Collection<Registro> getListaRegistroNegocios() {
+        return listaRegistroNegocios;
+    }
+
+
+    public void setListaRegistroNegocios(Collection<Registro> listaRegistroNegocios) {
+        this.listaRegistroNegocios = listaRegistroNegocios;
+    }
+
+    
     // METODOS PARA SERVICOS:
+
+
 
 
     /**
@@ -79,9 +90,11 @@ public class Empresa {
                 
                 for(int i=0; i>listaVehiculosAlquiler.size();i++){
                 empleado.setNumeroVehiculosAlquilados(cont+1);
+                listaVehiculosAlquiler.add(vehiculo);
                 }
                 System.out.println("el vehiculo ha sido alquilado"+ "el costo es" + valor);
                 registrarAlquiler(estado, vehiculo, valor, cliente, empleado);
+                obtenerNegociosPorEmpleado(empleado);
 
             }
             System.out.println("El vehiculo no esta disponible");
@@ -116,12 +129,16 @@ public class Empresa {
             if (!verificarCompra(vehiculo.getPlaca())) {
                 vehiculo.getEstadoVehiculo();
                 String estado = "Comprado";
+                double valor= 0;
                 vehiculo.setEstadoVehiculo(estado);
                 for(int i=0; i>listaVehiculosCompra.size();i++){
                     empleado.setNumeroVehiculosComprados(cont+1);
+                    listaVehiculosCompra.add(vehiculo);
+                    
                 }
                 System.out.println("el vehiculo ha sido comprado");
-                registrarCompra(estado, vehiculo, cont, cliente, empleado);
+                registrarCompra(estado, vehiculo,valor , cliente, empleado);
+                obtenerNegociosPorEmpleado(empleado);
 
             }
             System.out.println("El vehiculo no esta disponible");
@@ -154,12 +171,16 @@ public class Empresa {
             if (!verificarVenta(vehiculo.getPlaca())) {
                 vehiculo.getEstadoVehiculo();
                 String estado = "vendido";
+                double valor=0;
                 vehiculo.setEstadoVehiculo(estado);
                 for(int i=0; i>listaVehiculosVenta.size();i++){
                     empleado.setNumeroVehiculosVendidos(cont+1);
+                    listaVehiculosVenta.add(vehiculo);
+                    
                 }
                 System.out.println("el vehiculo ha sido vendido");
-                registrarVenta(estado, vehiculo, cont, cliente, empleado);
+                registrarVenta(estado, vehiculo, valor, cliente, empleado);
+                obtenerNegociosPorEmpleado(empleado);
 
             }
             System.out.println("El vehiculo no esta disponible");
@@ -240,6 +261,7 @@ public class Empresa {
      * @param vehiculo
      */
     public void agregarVehiculo(Vehiculo vehiculo) {
+        //String placa= vehiculo.getPlaca();
         if (!verificarVehiculo(vehiculo.getPlaca())) {
             listaVehiculos.add(vehiculo);
             System.out.println("el" + vehiculo + "fue agregado");
@@ -322,7 +344,7 @@ public class Empresa {
      * @param placa
      * @return
      */
-    public Vehiculo buscarVehiculoVenta(String placa) {
+    public Vehiculo buscarVehiculoVenta( String placa) {
 
         for (Vehiculo vehiculo : listaVehiculosVenta) {
             if (vehiculo.getPlaca().equals(placa)) {
@@ -415,6 +437,13 @@ public class Empresa {
 
     // METODOS PARA EMPLEADO
 
+
+    public void agregarEmpleado(Empleado empleado) {
+
+        listaEmpleados.add(empleado);
+
+    }
+
     /**
      * Metodo para verificar empleado
      * 
@@ -487,14 +516,14 @@ public class Empresa {
      * @param numeroVehiculosVendidos
      * @return
      */
-    public Empleado actualizarDatos(boolean esAdmin,double salario,String correo,String contraseña,int numeroVehiculosAlquilados,int numeroVehiculosComprados, int numeroVehiculosVendidos) {
+    public Empleado actualizarDatos(boolean esAdmin,double salario,String correo,int numeroVehiculosAlquilados,int numeroVehiculosComprados, int numeroVehiculosVendidos) {
 
         for (Empleado empleado : listaEmpleados) {
             if (empleado.getId().equals(empleado.getId())) {
                 empleado.setEsAdmin(esAdmin);
                 empleado.setSalario(salario);
                 empleado.setCorreo(correo);
-                empleado.setContraseña(contraseña);
+                
                 empleado.setNumeroVehiculosAlquilados(numeroVehiculosAlquilados);
                 empleado.setNumeroVehiculosComprados(numeroVehiculosComprados);
                 empleado.setNumeroVehiculosVendidos(numeroVehiculosVendidos);

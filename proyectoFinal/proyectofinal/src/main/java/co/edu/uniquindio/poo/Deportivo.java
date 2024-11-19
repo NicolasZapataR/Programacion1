@@ -6,9 +6,9 @@ public class Deportivo extends VehiculoCombustion {
     private int numeroPuertas;
     private int numeroBolsasAire;
     private double numeroCaballosDeFuerza;
-    private double aceleracion;
+    private String aceleracion;
 
-    public Deportivo(String placa,  TipoTransmision tipoTransmision, String marca, String estadoVehiculo, int numeroCambios, double velMax, double cilindraje, TipoCombustible tipoCombustible, int numeroPasajeros, int numeroPuertas, double numeroCaballosDeFuerza, double aceleracion){
+    public Deportivo(String placa,  TipoTransmision tipoTransmision, String marca, String estadoVehiculo, int numeroCambios, double velMax, double cilindraje, TipoCombustible tipoCombustible, int numeroPasajeros, int numeroPuertas, double numeroCaballosDeFuerza, String aceleracion){
 
         super(placa, tipoTransmision, marca, estadoVehiculo, numeroCambios, velMax, cilindraje, tipoCombustible);
 
@@ -54,11 +54,11 @@ public class Deportivo extends VehiculoCombustion {
         this.numeroCaballosDeFuerza = numeroCaballosDeFuerza;
     }
 
-    public double getAceleracion() {
+    public String getAceleracion() {
         return aceleracion;
     }
 
-    public void setAceleracion(double aceleracion) {
+    public void setAceleracion(String aceleracion) {
         this.aceleracion = aceleracion;
     }
 
