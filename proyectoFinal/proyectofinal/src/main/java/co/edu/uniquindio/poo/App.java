@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo;
 
 import java.util.Scanner;
+import co.edu.uniquindio.poo.*;
 
 /**
  * Hello world!
@@ -24,37 +25,46 @@ public class App {
         Empleado empleado1 = new Empleado(false, "Jorge", "001", "320320320", "armenia-centro", 2300000, "jorge@tucarrouq.com", 5, 3, 8);
         Empleado empleado2 =new Empleado(false, "Maria", "0002", "313313313", "Armenia-centro", 2200000, "maria@tucarrouq.com", 2, 1, 6);
         Empleado admin = new Empleado(true, "Raul", "003", "314314314", "Armenia-norte", 3500000, "raul@tucarrouq.com", 0, 0, 0);
-        empresa.empleado.agregarEmpleado(empresa, empleado1);  
-        empresa.empleado.agregarEmpleado(empresa, empleado2);
-        empresa.empleado.agregarEmpleado(empresa, admin);
+        empresa.agregarEmpleado(empleado1);  
+        empresa.agregarEmpleado(empleado2); 
+        empresa. agregarEmpleado(admin); 
+      //  empresa.empleado.agregarEmpleado(empresa, empleado2);
+       // empresa.empleado.agregarEmpleado(empresa, admin);
 
 
         Bus bus1 = new Bus("BHM-412", TipoTransmision.triptonica, "volvo", "venta", 6, 155.9, 4.600, TipoCombustible.diesel, 44, 6, 8000, 48, true, true, true, 2, 1);
-        empresa.empleado.registroVehiculosListaVenta(bus1, empresa, empleado2);
+        
+        
+        empleado1.registroVehiculosListaVenta(bus1, empresa);
+
+
 
         Camion camion1= new Camion("KML-877", TipoTransmision.manual, "kenwort", "venta", 16, 140, 5800, TipoCombustible.diesel, 35000, true, true, true, 2, TipoCamion.camionDosEjes);
-        empresa.empleado.registroVehiculosListaVenta(camion1, empresa, empleado1);
+        empleado1.registroVehiculosListaVenta(camion1, empresa);
 
         Van van1 = new Van("BDX-566", TipoTransmision.manual, "chevrolet", "alquiler", 5, 120, 2800, TipoCombustible.gasolina, 11 ,4 , 1600, 3, true, false, false);
-        empresa.empleado.registroVehiculosListaAlquiler(van1, empresa, empleado2);
+        empleado2.registroVehiculosListaAlquiler(van1, empresa);
 
         Deportivo deportivo1 = new Deportivo("GFV-198", TipoTransmision.triptonica, "bmw", "venta", 6, 260, 2400, TipoCombustible.gasolina, 4, 3, 250, " 0 a 100km/h de 3,5 seg");
-        empresa.empleado.registroVehiculosListaVenta(deportivo1, empresa, empleado2);
+        empleado2.registroVehiculosListaVenta(deportivo1, empresa);
 
         PickUpHibrida pickUpHibrida1= new PickUpHibrida("SQE-150", TipoTransmision.automatica, "honda", "alquiler", 5, 120, 1000, true, false, 5, 5, true, true, 4, true, false, 500);
-        empresa.empleado.registroVehiculosListaAlquiler(pickUpHibrida1, empresa, empleado1);
+        empleado1.registroVehiculosListaAlquiler(pickUpHibrida1, empresa);
 
         SedanElectrico sedanElectrico1 = new SedanElectrico("KDN-100", TipoTransmision.automatica, "nissan", "compra", 5, 130, 1000, 250, 4, 5, 5, 800, 4, true, false, false, true, false, false, false);
-        empresa.empleado.registroVehiculosListaCompra(sedanElectrico1, empresa, empleado2);
+        empleado2.registroVehiculosListaCompra(sedanElectrico1, empresa);
 
 
         MotoElectrica motoElectrica1= new MotoElectrica("KUJ-39F", TipoTransmision.automatica, "yamaha", "venta", 6, 80, 100, 100, 7);
-        empresa.empleado.registroVehiculosListaVenta(motoElectrica1, empresa, empleado2);
+        empleado1.registroVehiculosListaVenta(motoElectrica1, empresa);
 
-        Cliente cliente1 = new Cliente("nicolas", "1234", "323232", "armenia-sur", 0, 0, 0);
-        Cliente cliente2 = new Cliente("johanna", "9854", "315315315", "armenia.sur", 0, 0, 0);
+        Cliente cliente1 = new Cliente("nicolas", "1234", "323232", "armenia-sur");
+        Cliente cliente2 = new Cliente("johanna", "9854", "315315315", "armenia.sur");
 
 
+        empresa.agregarCliente(cliente1);
+
+        empresa.agregarCliente(cliente2);
 
         boolean centinela = true;
 
@@ -113,7 +123,7 @@ public class App {
 
                 Empleado nuevoEmpleado = new Empleado(false, nombre, id, telefono, direccion, salario, correo, rol, nCompras, rol);
 
-                empresa.empleado.agregarEmpleadoListaEmpleado(empresa, nuevoEmpleado);;
+                admin.agregarEmpleadoListaEmpleado(empresa, nuevoEmpleado);;
 
 
 
@@ -125,9 +135,8 @@ public class App {
                 System.out.println("ingrese el id del empleado que desea eliminar");
                 String idElimnar=dato.nextLine();
 
-               // empresa.empleado.eliminarEmpleado(empresa, empresa.empleado.getId());
                 empresa.eliminarEmpleado(idElimnar);
-
+              
                 
 
                 case 3:
@@ -137,17 +146,15 @@ public class App {
                 System.out.println("ingrese el id del empleado que desea buscar");
                 String idBuscar=dato.nextLine();
                 
-                empresa.empleado.buscarEmpleado(empresa, empresa.empleado);
                 empresa.buscarEmpleado(idBuscar);
 
                    
-
                 case 4:
                 
 
                 System.out.println("Actualizar datos del empleado");
 
-                Empleado empleado;
+                
 
                 System.out.println("ingrese el nombre del empleado");
                 String nombreActualizar=dato.nextLine();
@@ -177,10 +184,12 @@ public class App {
                 System.out.println("numero de vendidos");
                 int nVentasActualizar=dato.nextInt();
 
+                Empleado empleado = new Empleado(true, nombreActualizar, idActualizar, telefonoActualizar, direccionActualizar, salarioActualizar, correoActualizar, nAlquileresActualizar, nComprasActualizar, nVentasActualizar);
+
               //  empresa.empleado.actualizarDatos(empresa, nuevoEmpleado);
                 //empresa.actualizarDatos(false, salarioActualizar, correoActualizar, nAlquileres, nCompras, nVentas);
 
-                admin.actualizarDatosEmpleado(empresa, empleado2);
+                admin.actualizarDatosEmpleado(empresa, empleado);
                    
 
                 case 5:
@@ -237,8 +246,12 @@ public class App {
 
                     //busco que llegue la placa del vehiculo y no el vehiculo
 
-                    empresa.agregarVehiculoCompra(motoElectrica1);;
-                    empresa.empleado.registroVehiculosListaVenta(motoElectrica1, empresa, empleado2);
+                    Vehiculo vehiculo = empresa.buscarVehiculo(placaVentaAgregar);
+
+                    empresa.agregarVehiculoCompra(motoElectrica1);
+
+
+                    empleado1.registroVehiculosListaVenta(vehiculo, empresa);
 
 
                     case 2: 
@@ -247,9 +260,8 @@ public class App {
                     System.out.println("ingrese la placa del vehiculo");
                     String placaVentaBuscar=dato.nextLine();
 
-                    empresa.buscarVehiculoVenta(placaVentaBuscar);
-                    empresa.empleado.buscarVehiculoListaVenta(motoElectrica1, empresa, empleado2);
-
+                    Vehiculo vehiculo2 = empresa.buscarVehiculoVenta(placaVentaBuscar);
+                    
 
                     case 3:
                     System.out.println("eliminar vehiculo venta");
@@ -259,8 +271,6 @@ public class App {
 
                     empresa.eliminarVehiculoVenta(placaVentaElimniar);
                     
-                    
-        
 
                     case 4:
                     System.out.println("agregar vehiculo alquiler");
@@ -287,16 +297,18 @@ public class App {
                     String placaEliminarAlquiler=dato.nextLine();
 
                     empresa.eliminarVehiculoAlquiler(placaEliminarAlquiler);
-                    //no cuadra
-                    empresa.empleado.eliminarVehiculoListaAlquiler(motoElectrica1, empresa, empleado2);
-
+                    
+                    
                     case 7:
                     System.out.println("agregar vehiculo para comprar");
 
                     System.out.println("ingrese la placa del vehiculo");
                     String placaAgregarComprar=dato.nextLine();
 
-                    empresa.agregarVehiculoCompra(motoElectrica1);
+                    Vehiculo vehiculo3= empresa.buscarVehiculoCompra (placaAgregarComprar) ;                       
+                    
+
+                    empresa.agregarVehiculoCompra(vehiculo3);
 
 
                     case 8:
@@ -373,8 +385,13 @@ public class App {
                         System.out.println("ingrese el valor del alquiler");
                         double valor= dato.nextDouble();
 
-                        empresa.hacerAlquiler(dias, valor);
-                        empresa.empleado.alquilar(empresa, empleado2, dias, valor, motoElectrica1, cliente2);
+
+                        System.out.println("ingrese la placa del vehiculo");
+                        String placaBuscar=dato.nextLine();
+    
+                        Vehiculo vehiculo = empresa.buscarVehiculoCompra(placaBuscar);
+                     
+                        empleado1.alquilar(empresa, dias, valor, vehiculo, cliente2);
 
 
                 
@@ -382,14 +399,29 @@ public class App {
                         case 2:
                         System.out.println("vender");
 
-                        empleado1.vender(empresa, empleado1);
-                        empresa.hacerVenta();
+
+                        System.out.println("ingrese la placa del vehiculo");
+                        String placaBuscar2=dato.nextLine();
+    
+                        Vehiculo vehiculo2 = empresa.buscarVehiculoCompra(placaBuscar2); 
+
+
+
+
+                        empleado1.vender(empresa, cliente2, vehiculo2);
+                       
 
                         case 3:
                         System.out.println("comprar");
 
-                        empresa.hacerCompra();
-                        empleado1.comprar(empresa, empleado2);
+
+                        System.out.println("ingrese la placa del vehiculo");
+                        String placaBuscar3=dato.nextLine();
+    
+                        Vehiculo vehiculo3 = empresa.buscarVehiculoCompra(placaBuscar3); 
+
+                       
+                        empleado1.comprar(empresa, cliente2, vehiculo3);
 
                      
 

@@ -4,10 +4,11 @@ public interface IGestionEmpresa {
 
 
     //ADMINISTRADOR
-    public void registoEmpleados( Empresa empresa, Empleado empleado);
+    public void agregarEmpleado(Empresa empresa, Empleado empleado);
+    public void agregarEmpleadoListaEmpleado( Empresa empresa, Empleado empleado);
     public void eliminarEmpleado(Empresa empresa, Empleado empleado);
     public void buscarEmpleado(Empresa empresa, Empleado empleado);
-    public void actualizarDatos(Empresa empresa, Empleado empleado);
+    public void actualizarDatosEmpleado(Empresa empresa, Empleado empleado);
 
     public void verRegistroEmpleado(Empresa empresa, Empleado empleado);
     public void verRegistroGenertal(Empresa empresa);
@@ -15,9 +16,9 @@ public interface IGestionEmpresa {
     
 
     //EMPLEADO
-    public void registroVehiculosListaVenta(Vehiculo vehiculo, Empresa empresa, Empleado empleado);
-    public void registroVehiculosListaCompra(Vehiculo vehiculo, Empresa empresa, Empleado empleado);
-    public void registroVehiculosListaAlquiler(Vehiculo vehiculo, Empresa empresa, Empleado empleado);
+    public void registroVehiculosListaVenta(Vehiculo vehiculo, Empresa empresa);
+    public void registroVehiculosListaCompra(Vehiculo vehiculo, Empresa empresa);
+    public void registroVehiculosListaAlquiler(Vehiculo vehiculo, Empresa empresa);
 
     public void buscarVehiculoListaVenta(Vehiculo vehiculo, Empresa empresa,Empleado empleado);
     public void buscarVehiculoListaCompra(Vehiculo vehiculo, Empresa empresa,Empleado empleado);
@@ -29,13 +30,13 @@ public interface IGestionEmpresa {
 
 
 
-    public void registroClientes(Empresa empresa, Empleado empleado, Cliente cliente);
-    public void eliminarCliente(Empresa empresa, Empleado empleado, Cliente cliente);
-    public void buscarCliente(Empresa empresa, Empleado empleado, Cliente cliente);
+    public void registroClientes(Empresa empresa, Cliente cliente);
+    public void eliminarCliente(Empresa empresa, Cliente cliente);
+    public void buscarCliente(Empresa empresa, Cliente cliente);
 
-    public void alquilar(Empresa empresa, Empleado empleado,int dias, double valor, Vehiculo vehiculo,Cliente cliente);
-    public void comprar(Empresa empresa, Empleado empleado);
-    public void vender(Empresa empresa, Empleado empleado);
+    public void alquilar(Empresa empresa,int dias, double valor, Vehiculo vehiculo,Cliente cliente);
+    public void comprar(Empresa empresa, Cliente cliente, Vehiculo vehiculo);
+    public void vender(Empresa empresa, Cliente cliente, Vehiculo vehiculo);
 
     
 

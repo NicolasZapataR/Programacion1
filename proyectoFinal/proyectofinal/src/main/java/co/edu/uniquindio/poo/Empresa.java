@@ -8,8 +8,8 @@ import java.util.List;
 public class Empresa {
 
     private String nombre;
-    public Empleado empleado;
-    public Cliente cliente;
+   // public Empleado empleado;
+    //public Cliente cliente;
 
 
     public Collection<Vehiculo> listaVehiculos;
@@ -77,7 +77,7 @@ public class Empresa {
     /**
      * Metodo para hacer alquiler
      */
-    public void hacerAlquiler(int dias, double valor) {
+    public void hacerAlquiler(int dias, double valor, Cliente cliente, Empleado empleado) {
 
         int cont= empleado.getNumeroVehiculosAlquilados();
 
@@ -108,10 +108,10 @@ public class Empresa {
      * @return
      */
 
-    public boolean verificarCompra(String codigo) {
+    public boolean verificarCompra(String placa) {
         boolean centinela = false;
         for (Vehiculo vehiculo : listaVehiculosCompra) {
-            if (vehiculo.getPlaca().equals(vehiculo.getPlaca())) {
+            if (placa.equals(vehiculo.getPlaca())) {
                 centinela = true;
             }
         }
@@ -121,11 +121,10 @@ public class Empresa {
     /**
      * Metodo para hacer compra
      */
-    public void hacerCompra(){
+    public void hacerCompra(Cliente cliente, Vehiculo vehiculo, Empleado empleado){
 
         int cont= empleado.getNumeroVehiculosComprados();
 
-        for (Vehiculo vehiculo : listaVehiculosCompra) {
             if (!verificarCompra(vehiculo.getPlaca())) {
                 vehiculo.getEstadoVehiculo();
                 String estado = "Comprado";
@@ -133,7 +132,7 @@ public class Empresa {
                 vehiculo.setEstadoVehiculo(estado);
                 for(int i=0; i>listaVehiculosCompra.size();i++){
                     empleado.setNumeroVehiculosComprados(cont+1);
-                    listaVehiculosCompra.add(vehiculo);
+                    listaVehiculosCompra.remove(vehiculo);
                     
                 }
                 System.out.println("el vehiculo ha sido comprado");
@@ -142,7 +141,7 @@ public class Empresa {
 
             }
             System.out.println("El vehiculo no esta disponible");
-        }
+        
     }
 
     /**
@@ -150,10 +149,10 @@ public class Empresa {
      * @param codigo
      * @return
      */
-    public boolean verificarVenta(String codigo) {
+    public boolean verificarVenta(String placa) {
         boolean centinela = false;
         for (Vehiculo vehiculo : listaVehiculosVenta) {
-            if (vehiculo.getPlaca().equals(vehiculo.getPlaca())) {
+            if (placa.equals(vehiculo.getPlaca())) {
                 centinela = true;
             }
         }
@@ -163,11 +162,10 @@ public class Empresa {
     /**
      * MEtodo para hacer venta
      */
-    public void hacerVenta(){
+    public void hacerVenta(Cliente cliente, Vehiculo vehiculo, Empleado empleado){
 
         int cont= empleado.getNumeroVehiculosVendidos();
-
-        for (Vehiculo vehiculo : listaVehiculosVenta) {
+       
             if (!verificarVenta(vehiculo.getPlaca())) {
                 vehiculo.getEstadoVehiculo();
                 String estado = "vendido";
@@ -175,7 +173,7 @@ public class Empresa {
                 vehiculo.setEstadoVehiculo(estado);
                 for(int i=0; i>listaVehiculosVenta.size();i++){
                     empleado.setNumeroVehiculosVendidos(cont+1);
-                    listaVehiculosVenta.add(vehiculo);
+                    listaVehiculosVenta.remove(vehiculo);
                     
                 }
                 System.out.println("el vehiculo ha sido vendido");
@@ -184,7 +182,7 @@ public class Empresa {
 
             }
             System.out.println("El vehiculo no esta disponible");
-        }
+        
     }
 
 
@@ -461,11 +459,11 @@ public class Empresa {
     }
 
     /**
-     * Metodo para agregar empleado
+     * Metodo para agregar empleadoa lista
      * 
      * @param id
      */
-    public void agregarEmpleado(String id) {
+    public void agregarEmpleadoLista(String id, Empleado empleado) {
         if (!verificarEmpleado(empleado.getId())) {
             listaEmpleados.add(empleado);
             System.out.println("el" + empleado + "fue agregado");
@@ -559,7 +557,8 @@ public class Empresa {
      * 
      * @param id
      */
-    public void agregarCliente(String id) {
+    public void agregarCliente(Cliente cliente ) {
+
         if (!verificarCliente(cliente.getId())) {
             listaClientes.add(cliente);
             System.out.println("el" + cliente + "fue agregado");

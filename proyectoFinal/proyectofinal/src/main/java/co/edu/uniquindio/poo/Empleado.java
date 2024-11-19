@@ -81,10 +81,15 @@ public class Empleado extends Persona implements IGestionEmpresa {
     // Administrador
 
     @Override
+    public void agregarEmpleado(Empresa empresa, Empleado empleado) {
+       empresa.agregarEmpleado(empleado);
+    }
+
+    @Override
     public void agregarEmpleadoListaEmpleado(Empresa empresa, Empleado empleado) {
 
         if(empleado.getEsAdmin()==true){
-            empresa.agregarEmpleadoLista(empleado.getId());
+            empresa.agregarEmpleadoLista(empleado.getId(), empleado);
         }
         else{
             System.out.println("El empleado no puede registrar");
@@ -154,9 +159,9 @@ public class Empleado extends Persona implements IGestionEmpresa {
     //EMPLEADO
 
     @Override
-    public void registroVehiculosListaVenta(Vehiculo vehiculo, Empresa empresa, Empleado empleado) {
+    public void registroVehiculosListaVenta(Vehiculo vehiculo, Empresa empresa) {
 
-        if(empleado.getEsAdmin()==false){
+        if(this.getEsAdmin()==false){
 
             empresa.agregarVehiculoVenta(vehiculo);
         }
@@ -169,9 +174,9 @@ public class Empleado extends Persona implements IGestionEmpresa {
     }
 
     @Override
-    public void registroVehiculosListaCompra(Vehiculo vehiculo, Empresa empresa, Empleado empleado) {
+    public void registroVehiculosListaCompra(Vehiculo vehiculo, Empresa empresa) {
         
-        if (empleado.getEsAdmin()==false){
+        if (this.getEsAdmin()==false){
 
             empresa.agregarVehiculoCompra(vehiculo);
         }
@@ -183,9 +188,9 @@ public class Empleado extends Persona implements IGestionEmpresa {
     }
 
     @Override
-    public void registroVehiculosListaAlquiler(Vehiculo vehiculo, Empresa empresa, Empleado empleado) {
+    public void registroVehiculosListaAlquiler(Vehiculo vehiculo, Empresa empresa) {
 
-        if(empleado.getEsAdmin()==false){
+        if(this.getEsAdmin()==false){
             empresa.agregarVehiculoAlquiler(vehiculo);
         }
         else{
@@ -278,10 +283,10 @@ public class Empleado extends Persona implements IGestionEmpresa {
     }
 
     @Override
-    public void registroClientes(Empresa empresa, Empleado empleado, Cliente cliente) {
+    public void registroClientes(Empresa empresa, Cliente cliente) {
 
-        if(empleado.getEsAdmin()==false){
-            empresa.agregarCliente(cliente.getId());
+        if(this.getEsAdmin()==false){
+            empresa.agregarCliente(cliente);
         }
         else{
             System.out.println("el administrador no puede agregar vehiculos");
@@ -292,9 +297,9 @@ public class Empleado extends Persona implements IGestionEmpresa {
     }
 
     @Override
-    public void eliminarCliente(Empresa empresa, Empleado empleado, Cliente cliente) {
+    public void eliminarCliente(Empresa empresa, Cliente cliente) {
 
-        if(empleado.getEsAdmin()==false){
+        if(this.getEsAdmin()==false){
             empresa.eliminarCliente(cliente.getId());
         }
         else{
@@ -306,9 +311,9 @@ public class Empleado extends Persona implements IGestionEmpresa {
     }
 
     @Override
-    public void buscarCliente(Empresa empresa, Empleado empleado, Cliente cliente) {
+    public void buscarCliente(Empresa empresa, Cliente cliente) {
 
-        if(empleado.getEsAdmin()==false){
+        if(this.getEsAdmin()==false){
             empresa.buscarCliente(cliente.getId());
         }
         else{
@@ -319,11 +324,11 @@ public class Empleado extends Persona implements IGestionEmpresa {
     }
 
     @Override
-    public void alquilar(Empresa empresa, Empleado empleado,int dias, double valor, Vehiculo vehiculo, Cliente cliente) {
+    public void alquilar(Empresa empresa,int dias, double valor, Vehiculo vehiculo, Cliente cliente) {
 
-        if(empleado.getEsAdmin()==false){
+        if(this.getEsAdmin()==false){
 
-            empresa.hacerAlquiler(dias, valor);
+            empresa.hacerAlquiler(dias, valor, cliente, this);
         }
         else{
             System.out.println("el administrador no puede alquilar");
@@ -332,11 +337,11 @@ public class Empleado extends Persona implements IGestionEmpresa {
     }
 
     @Override
-    public void comprar(Empresa empresa, Empleado empleado) {
+    public void comprar(Empresa empresa, Cliente cliente, Vehiculo vehiculo) {
 
-        if(empleado.getEsAdmin()==false){
+        if(this.getEsAdmin()==false){
 
-            empresa.hacerCompra();
+            empresa.hacerCompra(cliente, vehiculo, this);
         }
         else{
             System.out.println("el administrador no puede hacer compras");
@@ -346,12 +351,12 @@ public class Empleado extends Persona implements IGestionEmpresa {
     }
 
     @Override
-    public void vender(Empresa empresa, Empleado empleado) {
+    public void vender(Empresa empresa, Cliente cliente, Vehiculo vehiculo) {
 
         
-        if(empleado.getEsAdmin()==false){
+        if(this.getEsAdmin()==false){
 
-            empresa.hacerVenta();
+            empresa.hacerVenta(cliente, vehiculo, this);
         }
         else{
             System.out.println("el administrador no puede hacer ventas");
@@ -360,6 +365,8 @@ public class Empleado extends Persona implements IGestionEmpresa {
 
 
     }
+
+    
 
     
 
